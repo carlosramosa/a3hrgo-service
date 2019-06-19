@@ -16,6 +16,11 @@ figlet('Server Started', (err, data) =>
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+router.get('/', function(req, res, next) {
+    res.render('./README.md', { title: 'Express' });
+});
+
+
 const routesContext = {
     app
     , controller: require('./app/controllers')
