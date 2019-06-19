@@ -1,5 +1,11 @@
 # A3HRGO-SERVICE
 
+## START
+
+Just code in your terminal
+```
+npm run start
+```
 
 ## ENDPOINTS
 
