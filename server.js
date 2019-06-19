@@ -39,5 +39,5 @@ require('./app/routes')(routesContext);
  */
 const port = 8000;
 app.listen(port, () => {
-    console.log(chalk.red('******************\nWe are live on ' + port + '\n******************'));
+    console.log(chalk.red('******************\nWe are live on ' +  port + '\n******************'));
 });
