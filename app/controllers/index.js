@@ -8,11 +8,6 @@ module.exports = {
         const { body: { email, password } } = req;
         const puppeteer = require('puppeteer');
 
-        const options = {
-        path: 'a-header.png',
-        fullPage: true
-        }
-
         puppeteer.launch().then(async browser => {
         const page = await browser.newPage();
 
@@ -40,6 +35,10 @@ module.exports = {
 
         await browser.close()
         
+        // const options = {
+        // path: 'a-header.png',
+        // fullPage: true
+        // }
         // await page.screenshot(options);
         // await browser.close();
         });
