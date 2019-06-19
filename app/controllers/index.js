@@ -1,5 +1,6 @@
 'use strict';
 
+const { generateResponse } = require('../utils');
 
 module.exports = {
 
@@ -20,9 +21,27 @@ module.exports = {
         await page.type('input#Login', email);
         await page.type('input#Password', password);
 
-        const a = await page.click('input.btnLogin');
-        await page.screenshot(options);
-        await browser.close();
+        //let ok;
+
+        const [finalResponse, nothing ] = await Promise.all([
+            page.waitForResponse((response) => {
+                return response.url() === 'https://ecolex.a3hrgo.com/Account/Login?ReturnUrl=%2F';
+            }),
+            await page.click('input.btnLogin')
+        ]);
+
+        if (finalResponse.status() === 302) {
+            console.log('Login OK');
+            generateResponse(res)({ ok: true, message: 'Login OK' });
+        } else {
+            console.log('Login ERROR');
+            generateResponse(res)({ ok: false, message: 'Login KO' });
+        }
+
+        await browser.close()
+        
+        // await page.screenshot(options);
+        // await browser.close();
         });
 
     }

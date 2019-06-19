@@ -2,7 +2,6 @@
 
 const express     = require('express');
 const bodyParser  = require('body-parser');
-const session     = require('express-session');
 const app         = express();
 
 // const { DB_URL, ENV }     = require('./app/config/env');
@@ -17,19 +16,16 @@ figlet('Server Started', (err, data) =>
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
-/**
- * 
- * INITIALIZE API ROUTERS
- * 
- */
-require('./app/routes')({
+const routesContext = {
     app
     , controller: require('./app/controllers')
-    // , middleware: require ('./app/middleware')
-    // , utils: require('./app/utils/index.js')
-    // , Boom: require('boom')
-});
+}
+/**
+ * 
+ * INITIALIZE API ROUTES
+ * 
+ */
+require('./app/routes')(routesContext);
 
 /**
  * 
