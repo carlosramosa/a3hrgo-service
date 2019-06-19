@@ -5,14 +5,14 @@ const puppeteer = require('puppeteer');
 
 module.exports = {
 
-    login : ({ body: { email, password } }, res) => {
+    login : ({ body: { nif, password } }, res) => {
 
         puppeteer.launch().then(async browser => {
             const page = await browser.newPage();
 
             await page.goto('https://ecolex.a3hrgo.com');
 
-            await page.type('input#Login', email);
+            await page.type('input#Login', nif);
             await page.type('input#Password', password);
 
             const [finalResponse, nothing ] = await Promise.all([
