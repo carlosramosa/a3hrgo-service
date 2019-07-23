@@ -30,14 +30,17 @@ module.exports = {
                 generateResponse(res)({ ok: false, message: 'Login KO' });
             }
 
+            await Promise.all([
+                page.goto('https://ecolex.a3hrgo.com/Fichajes/CrearFichajes/0'),
+                page.waitForNavigation({ waitUntil: 'load' })
+            ]);
+        
+            // do report
+            await page.click('button#btnGuardar');
+            console.log('Fichaje OK');
+        
             await browser.close()
             
-            // const options = {
-            // path: 'a-header.png',
-            // fullPage: true
-            // }
-            // await page.screenshot(options);
-            // await browser.close();
         });
 
     }

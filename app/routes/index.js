@@ -1,8 +1,8 @@
 'user strict';
 
-const Login = require('./login');
+const Fichar = require('./fichar');
 
 
 module.exports = (context) => {
-    Login(context)
+    Fichar(context)
 };

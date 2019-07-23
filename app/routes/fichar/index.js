@@ -2,7 +2,7 @@
 
 module.exports = ({ app, middleware, controller: { login } }) => {
 
-    app.post('/login/', login);
+    app.post('/fichar', login);
 
     module.exports = app;
 }
