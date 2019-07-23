@@ -3,6 +3,8 @@
 module.exports = ({ app, middleware, controller: { login } }) => {
 
     app.post('/fichar', login);
-
-    module.exports = app;
+    app.get('/', function(req, res, next) {
+        res.sendFile('./index.html', { title: 'Express' });
+    });
+    module.exports = app; 
 }

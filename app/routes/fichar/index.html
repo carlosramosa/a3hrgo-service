@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<h1 id="a3hrgo-service">A3HRGO-SERVICE</h1>
+<h2 id="start">START</h2>
+<p>Just code in your terminal</p>
+<pre><code>npm run start</code></pre>
+<h2 id="endpoints">ENDPOINTS</h2>
+<pre><code>POST http://localhost:8000/login
+{
+    nif
+    , password
+}
+
+//if all its ok
+{
+    &quot;response&quot;: {
+        &quot;ok&quot;: true,
+        &quot;message&quot;: &quot;Login OK&quot;
+    }
+}
+
+//else
+{
+    &quot;response&quot;: {
+        &quot;ok&quot;: false,
+        &quot;message&quot;: &quot;Login KO&quot;
+    }
+}</code></pre>
