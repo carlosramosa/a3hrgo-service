@@ -15,5 +15,5 @@
     "express-session": "^1.16.2",
     "figlet": "^1.2.3",
     "request": "^2.88.0"
-  }
+  } 
 }
