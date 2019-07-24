@@ -33,7 +33,7 @@ require('./app/routes')(routesContext);
  * START SERVER
  * 
  */
-const port = 8000;
+const port = process.env.PORT || 8080;
 app.listen(port, () => {
     console.log(chalk.red('******************\nWe are live on ' +  port + '\n******************'));
 });
